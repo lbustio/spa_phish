@@ -1,0 +1,75 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+*.egg-info/
+*.egg
+dist/
+build/
+*.whl
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# VS Code settings and extensions
+.vscode/
+*.code-workspace
+
+# Data files
+data/
+*.csv
+*.h5
+*.db
+*.sqlite
+*.parquet
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+
+# Environments
+.env
+.env.*
+.venv/
+.env/
+pip-log.txt
+pip-delete-this-directory.txt
+env/
+venv/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Editor-specific files
+*~
+*.swp
+*.swo
+*.swn
+*.bak
+*.tmp
+*.temp
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+desktop.ini
+$RECYCLE.BIN/
