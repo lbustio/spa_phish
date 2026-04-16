@@ -1,0 +1,15 @@
+beautifulsoup4>=4.12
+jupyterlab>=4.0
+ipykernel>=6.0
+matplotlib>=3.8
+numpy>=1.26
+openpyxl>=3.1
+pandas>=2.2
+Pillow>=10.0
+pytesseract>=0.3.10
+reportlab>=4.0
+weasyprint>=62.0
+scikit-learn>=1.4
+scipy>=1.11
+seaborn>=0.13
+wordcloud>=1.9

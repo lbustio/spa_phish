@@ -1,0 +1,108 @@
+# =============================================================================
+# SpaPhish Dataset - Python Data Science Project
+# =============================================================================
+
+# --- Local / non-versioned project folders ---
+data/
+docs/
+notebooks/
+output/
+
+# Keep the package code and launchers only.
+# The folders above are treated as local working areas and generated artifacts.
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+*.egg
+MANIFEST
+
+# --- Virtual environments ---
+.env
+.env.*
+!.env.example
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.conda/
+
+# --- Jupyter Notebook checkpoints ---
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+*.ipynb
+
+# --- Distribution / packaging ---
+*.whl
+
+# --- Testing ---
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+nosetests.xml
+coverage.xml
+*.cover
+
+# --- IDEs ---
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# --- macOS ---
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# --- Windows ---
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# --- Logs and temp files ---
+*.log
+*.tmp
+*.bak
+*.swp
+_pdf_tmp/
+
+# --- Secrets / credentials / personal data dumps ---
+*.pem
+*.key
+*.crt
+*.cer
+*.p12
+*.pfx
+*.der
+*.token
+*.secret
+*.secret.*
+*.auth
+*.vault
+*.kdbx
+credentials.*
+secrets.*
+secret.*
+*.sqlite
+*.sqlite3
+*.db
+id_rsa
+id_dsa
+id_ed25519
+
+# --- Backup data files ---
+data/backup/
+
+# --- Project-specific generated exports / archives ---
+output/Mendeley Data/
+output/NotebookLM/
