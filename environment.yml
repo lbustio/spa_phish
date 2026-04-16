@@ -4,20 +4,7 @@ channels:
 dependencies:
   - python=3.12
   - pip
-  - ipykernel>=6
-  - jupyterlab>=4
-  - beautifulsoup4>=4.12
   - ghostscript
-  - matplotlib>=3.8
-  - numpy>=1.26
-  - openpyxl>=3.1
-  - pandas>=2.2
-  - pillow>=10.0
-  - pytesseract>=0.3.10
-  - reportlab>=4.0
-  - weasyprint>=62.0
-  - scikit-learn>=1.4
-  - scipy>=1.11
-  - seaborn>=0.13
   - tesseract
-  - wordcloud>=1.9
+  - pip:
+      - -r ./requirements.txt

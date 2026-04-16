@@ -12,11 +12,11 @@ Builds a well-formed, navigable, styled PDF directly (no HTML conversion).
   - EPS figures are converted to PNG via Ghostscript before embedding
 
 Prerequisites:
-  Run analysis/analyze_dataset.py first to populate output/tables/ and output/figures/.
+  Run `python main.py analyze` first to populate output/tables/ and output/figures/.
   Ghostscript must be installed and on PATH for EPS figure support.
 
 Usage:
-  python reporting/report_pdf.py [--output-dir output] [--pdf SpaPhish_Report.pdf]
+  python main.py report --report-format pdf
 """
 
 from __future__ import annotations

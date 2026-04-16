@@ -8,11 +8,17 @@ docs/
 notebooks/
 output/
 
+# Keep local backup and export areas out of version control even if moved.
+data/backup/
+output/Mendeley Data/
+output/NotebookLM/
+
 # Keep the package code and launchers only.
 # The folders above are treated as local working areas and generated artifacts.
 
 # --- Python ---
 __pycache__/
+*/__pycache__/
 *.py[cod]
 *$py.class
 *.so
@@ -23,6 +29,11 @@ dist/
 .eggs/
 *.egg
 MANIFEST
+pip-wheel-metadata/
+.mypy_cache/
+.ruff_cache/
+.nox/
+.cache/
 
 # --- Virtual environments ---
 .env
@@ -40,6 +51,9 @@ venv.bak/
 .ipynb_checkpoints/
 *.ipynb_checkpoints
 *.ipynb
+
+# --- Editor / notebook exports ---
+*.nbconvert.ipynb
 
 # --- Distribution / packaging ---
 *.whl
@@ -73,6 +87,8 @@ Desktop.ini
 *.log
 *.tmp
 *.bak
+*.orig
+*.rej
 *.swp
 _pdf_tmp/
 
@@ -93,16 +109,12 @@ _pdf_tmp/
 credentials.*
 secrets.*
 secret.*
+*.password
+*.passwd
+*.credentials
 *.sqlite
 *.sqlite3
 *.db
 id_rsa
 id_dsa
 id_ed25519
-
-# --- Backup data files ---
-data/backup/
-
-# --- Project-specific generated exports / archives ---
-output/Mendeley Data/
-output/NotebookLM/

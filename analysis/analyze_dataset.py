@@ -4,14 +4,14 @@
 """
 analyze_dataset.py
 
-Generates Data in Brief–ready descriptive statistics, tables and figures
-from the SpaPhish dataset.
+Generates descriptive statistics, tables and figures from the SpaPhish
+dataset when called through `main.py analyze`.
 
 Usage:
-    python analysis/analyze_dataset.py
+    python main.py analyze
 
 Assumptions:
-- This script lives in the analysis/ subdirectory of the project root.
+- This module is called from the repository root through `main.py analyze`.
 - The dataset is located at: <project_root>/data/Spaphish dataset - DiB.csv
   (an Excel .xlsx version is also accepted)
 - All outputs are written to: <project_root>/output/
@@ -55,7 +55,7 @@ from wordcloud import WordCloud
 
 
 # =====================================================================
-# Global visual style (journal-like, clean, Data in Brief–friendly)
+# Global visual style (journal-like, clean, publication-friendly)
 # =====================================================================
 
 plt.rcParams.update(
@@ -3241,30 +3241,8 @@ def analyze_potential_bias(df: pd.DataFrame, tables_dir: Path, figs_dir: Path):
 # =============================================================================
 
 
-def main():
-    # =========================================================================
-    # 0. BASE PATHS & DATASET
-    # =========================================================================
-    # This script lives in analysis/, so the project root is one level up.
-    """Run the SpaPhish analysis pipeline and return an exit code."""
-    project_root = Path(__file__).resolve().parent.parent
-
-    # Accept CSV (primary download format) or Excel
-    data_path_csv = project_root / "data" / "Spaphish dataset - DiB.csv"
-    data_path_xlsx = project_root / "data" / "Spaphish dataset - DiB.xlsx"
-    if data_path_csv.exists():
-        data_path = data_path_csv
-    elif data_path_xlsx.exists():
-        data_path = data_path_xlsx
-    else:
-        raise FileNotFoundError(
-            f"Dataset not found. Expected one of:\n"
-            f"  {data_path_csv}\n"
-            f"  {data_path_xlsx}\n"
-            "Download it from Mendeley Data and place it in the data/ folder."
-        )
-
-    output_base = project_root / "output"
+def run_analysis(data_path: Path, output_base: Path, dataset_name: str = "SpaPhish") -> dict[str, Path]:
+    """Run the SpaPhish analysis pipeline and return the output directories."""
 
     print(f"[INFO] Loading dataset from: {data_path}")
     df = load_dataset(data_path)
@@ -3286,7 +3264,7 @@ def main():
     analyze_univariate_columns(df, tables_dir)
 
     print("[INFO] Generating dataset schema...")
-    generate_dataset_schema(df, tables_dir, dataset_name="SpaPhish")
+    generate_dataset_schema(df, tables_dir, dataset_name=dataset_name)
 
     # =========================================================================
     # 2. MISSINGNESS
@@ -3355,6 +3333,35 @@ def main():
     generate_outputs_manifest(tables_dir, figs_dir)
 
     print(f"[INFO] All outputs stored under: {output_base}")
+    return dirs
+
+
+def main():
+    # =========================================================================
+    # 0. BASE PATHS & DATASET
+    # =========================================================================
+    # This script lives in analysis/, so the project root is one level up.
+    """Run the SpaPhish analysis pipeline and return an exit code."""
+    project_root = Path(__file__).resolve().parent.parent
+
+    # Accept CSV (primary download format) or Excel
+    data_path_csv = project_root / "data" / "Spaphish dataset - DiB.csv"
+    data_path_xlsx = project_root / "data" / "Spaphish dataset - DiB.xlsx"
+    if data_path_csv.exists():
+        data_path = data_path_csv
+    elif data_path_xlsx.exists():
+        data_path = data_path_xlsx
+    else:
+        raise FileNotFoundError(
+            f"Dataset not found. Expected one of:\n"
+            f"  {data_path_csv}\n"
+            f"  {data_path_xlsx}\n"
+            "Download it from Mendeley Data and place it in the data/ folder."
+        )
+
+    output_base = project_root / "output"
+
+    run_analysis(data_path=data_path, output_base=output_base, dataset_name="SpaPhish")
 
 
 if __name__ == "__main__":

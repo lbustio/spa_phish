@@ -19,7 +19,7 @@ Features:
 - Print-optimised CSS so that tables wrap and never overflow the page width.
 
 Prerequisites:
-  Run analysis/analyze_dataset.py first to populate:
+  Run `python main.py analyze` first to populate:
     <project_root>/output/tables/*.csv
     <project_root>/output/figures/*.png
 
